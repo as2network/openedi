@@ -1,0 +1,3108 @@
+{
+	"info": {
+		"_postman_id": "33ed74bf-a5d6-4b26-8201-9176de4e324f",
+		"name": "EDI API Testing v1.0.0",
+		"description": "EDI validation, translation, and management system.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "controls",
+			"item": [
+				{
+					"name": "group-controls/{id}",
+					"item": [
+						{
+							"name": "Retrieve a group control by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/controls/group-controls/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"controls",
+										"group-controls",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "eb81f6c1-82c8-429b-beb6-d2fa7720ac3d",
+											"key": "id",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) Group control ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Group control retrieved",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/controls/group-controls/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"group-controls",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"version\": \"<string>\",\n \"localId\": \"<string>\",\n \"remoteId\": \"<string>\",\n \"type\": \"<string>\",\n \"agencyCode\": \"<string>\",\n \"createdAt\": {},\n \"industryCode\": \"<string>\",\n \"lastControlNumber\": \"<long>\",\n \"release\": \"<string>\",\n \"updatedAt\": {},\n \"uuid\": \"<string>\",\n \"localIdType\": \"<string>\",\n \"remoteIdType\": \"<string>\"\n}"
+								},
+								{
+									"name": "Group control not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/controls/group-controls/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"group-controls",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Updates a group control",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"version\": \"<string>\",\n    \"localId\": \"<string>\",\n    \"remoteId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"agencyCode\": \"<string>\",\n    \"createdAt\": {},\n    \"industryCode\": \"<string>\",\n    \"lastControlNumber\": \"<long>\",\n    \"release\": \"<string>\",\n    \"updatedAt\": {},\n    \"localIdType\": \"<string>\",\n    \"remoteIdType\": \"<string>\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/controls/group-controls/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"controls",
+										"group-controls",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "3a4383ad-ad18-4144-a296-25e46ed00978",
+											"key": "id",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) Interchange control ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Group control updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"version\": \"<string>\",\n    \"localId\": \"<string>\",\n    \"remoteId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"agencyCode\": \"<string>\",\n    \"createdAt\": {},\n    \"industryCode\": \"<string>\",\n    \"lastControlNumber\": \"<long>\",\n    \"release\": \"<string>\",\n    \"updatedAt\": {},\n    \"localIdType\": \"<string>\",\n    \"remoteIdType\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/controls/group-controls/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"group-controls",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"version\": \"<string>\",\n \"localId\": \"<string>\",\n \"remoteId\": \"<string>\",\n \"type\": \"<string>\",\n \"agencyCode\": \"<string>\",\n \"createdAt\": {},\n \"industryCode\": \"<string>\",\n \"lastControlNumber\": \"<long>\",\n \"release\": \"<string>\",\n \"updatedAt\": {},\n \"uuid\": \"<string>\",\n \"localIdType\": \"<string>\",\n \"remoteIdType\": \"<string>\"\n}"
+								},
+								{
+									"name": "Group control not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"version\": \"<string>\",\n    \"localId\": \"<string>\",\n    \"remoteId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"agencyCode\": \"<string>\",\n    \"createdAt\": {},\n    \"industryCode\": \"<string>\",\n    \"lastControlNumber\": \"<long>\",\n    \"release\": \"<string>\",\n    \"updatedAt\": {},\n    \"localIdType\": \"<string>\",\n    \"remoteIdType\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/controls/group-controls/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"group-controls",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "interchange-controls/{id}",
+					"item": [
+						{
+							"name": "group-controls",
+							"item": [
+								{
+									"name": "Retrieve an interchange control's group control list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/controls/interchange-controls/:id/group-controls",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"interchange-controls",
+												":id",
+												"group-controls"
+											],
+											"variable": [
+												{
+													"id": "f858d0b4-d7b0-4b75-8f41-a84753dcd5f0",
+													"key": "id",
+													"value": "<string>",
+													"type": "string",
+													"description": "(Required) Interchange control ID"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Group control list retrieved",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/controls/interchange-controls/:id/group-controls",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"controls",
+														"interchange-controls",
+														":id",
+														"group-controls"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n {\n  \"version\": \"<string>\",\n  \"localId\": \"<string>\",\n  \"remoteId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"agencyCode\": \"<string>\",\n  \"createdAt\": {},\n  \"industryCode\": \"<string>\",\n  \"lastControlNumber\": \"<long>\",\n  \"release\": \"<string>\",\n  \"updatedAt\": {},\n  \"uuid\": \"<string>\",\n  \"localIdType\": \"<string>\",\n  \"remoteIdType\": \"<string>\"\n },\n {\n  \"version\": \"<string>\",\n  \"localId\": \"<string>\",\n  \"remoteId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"agencyCode\": \"<string>\",\n  \"createdAt\": {},\n  \"industryCode\": \"<string>\",\n  \"lastControlNumber\": \"<long>\",\n  \"release\": \"<string>\",\n  \"updatedAt\": {},\n  \"uuid\": \"<string>\",\n  \"localIdType\": \"<string>\",\n  \"remoteIdType\": \"<string>\"\n }\n]"
+										},
+										{
+											"name": "Interchange control not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/controls/interchange-controls/:id/group-controls",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"controls",
+														"interchange-controls",
+														":id",
+														"group-controls"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Create a new group control record for an interchange control.",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"version\": \"<string>\",\n    \"localId\": \"<string>\",\n    \"remoteId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"agencyCode\": \"<string>\",\n    \"createdAt\": {},\n    \"industryCode\": \"<string>\",\n    \"lastControlNumber\": \"<long>\",\n    \"release\": \"<string>\",\n    \"updatedAt\": {},\n    \"localIdType\": \"<string>\",\n    \"remoteIdType\": \"<string>\"\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/controls/interchange-controls/:id/group-controls",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"interchange-controls",
+												":id",
+												"group-controls"
+											],
+											"variable": [
+												{
+													"id": "3921c829-6bcc-4bd2-b1de-38faa6992bc1",
+													"key": "id",
+													"value": "<string>",
+													"type": "string",
+													"description": "(Required) Interchange control ID"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Duplicate group",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"version\": \"<string>\",\n    \"localId\": \"<string>\",\n    \"remoteId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"agencyCode\": \"<string>\",\n    \"createdAt\": {},\n    \"industryCode\": \"<string>\",\n    \"lastControlNumber\": \"<long>\",\n    \"release\": \"<string>\",\n    \"updatedAt\": {},\n    \"localIdType\": \"<string>\",\n    \"remoteIdType\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/controls/interchange-controls/:id/group-controls",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"controls",
+														"interchange-controls",
+														":id",
+														"group-controls"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Conflict",
+											"code": 409,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Created",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"version\": \"<string>\",\n    \"localId\": \"<string>\",\n    \"remoteId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"agencyCode\": \"<string>\",\n    \"createdAt\": {},\n    \"industryCode\": \"<string>\",\n    \"lastControlNumber\": \"<long>\",\n    \"release\": \"<string>\",\n    \"updatedAt\": {},\n    \"localIdType\": \"<string>\",\n    \"remoteIdType\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/controls/interchange-controls/:id/group-controls",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"controls",
+														"interchange-controls",
+														":id",
+														"group-controls"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Location",
+													"value": "<uri>",
+													"description": "Location of the newly created record"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"version\": \"<string>\",\n \"localId\": \"<string>\",\n \"remoteId\": \"<string>\",\n \"type\": \"<string>\",\n \"agencyCode\": \"<string>\",\n \"createdAt\": {},\n \"industryCode\": \"<string>\",\n \"lastControlNumber\": \"<long>\",\n \"release\": \"<string>\",\n \"updatedAt\": {},\n \"uuid\": \"<string>\",\n \"localIdType\": \"<string>\",\n \"remoteIdType\": \"<string>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"version\": \"<string>\",\n    \"localId\": \"<string>\",\n    \"remoteId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"agencyCode\": \"<string>\",\n    \"createdAt\": {},\n    \"industryCode\": \"<string>\",\n    \"lastControlNumber\": \"<long>\",\n    \"release\": \"<string>\",\n    \"updatedAt\": {},\n    \"localIdType\": \"<string>\",\n    \"remoteIdType\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/controls/interchange-controls/:id/group-controls",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"controls",
+														"interchange-controls",
+														":id",
+														"group-controls"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Retrieve an interchange control by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/controls/interchange-controls/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"controls",
+										"interchange-controls",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "90d7b60e-6908-4d37-8a28-828d4b39d329",
+											"key": "id",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) Interchange control ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Interchange control retrieved",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/controls/interchange-controls/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"interchange-controls",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"version\": \"<string>\",\n \"localId\": \"<string>\",\n \"remoteId\": \"<string>\",\n \"standard\": \"<string>\",\n \"testIndicator\": \"<string>\",\n \"agencyCode\": \"<string>\",\n \"createdAt\": {},\n \"industryCode\": \"<string>\",\n \"lastControlNumber\": \"<long>\",\n \"release\": \"<string>\",\n \"updatedAt\": {},\n \"uuid\": \"<string>\",\n \"componentSeparator\": \"<string>\",\n \"decimalMark\": \"<string>\",\n \"elementSeparator\": \"<string>\",\n \"localIdType\": \"<string>\",\n \"releaseCharacter\": \"<string>\",\n \"remoteIdType\": \"<string>\",\n \"repetitionSeparator\": \"<string>\",\n \"segmentTerminator\": \"<string>\",\n \"delimiters\": \"<object>\"\n}"
+								},
+								{
+									"name": "Interchange control not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/controls/interchange-controls/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"interchange-controls",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Updates an interchange control",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"version\": \"<string>\",\n    \"localId\": \"<string>\",\n    \"remoteId\": \"<string>\",\n    \"standard\": \"<string>\",\n    \"testIndicator\": \"<string>\",\n    \"agencyCode\": \"<string>\",\n    \"createdAt\": {},\n    \"industryCode\": \"<string>\",\n    \"lastControlNumber\": \"<long>\",\n    \"release\": \"<string>\",\n    \"updatedAt\": {},\n    \"componentSeparator\": \"<string>\",\n    \"decimalMark\": \"<string>\",\n    \"elementSeparator\": \"<string>\",\n    \"localIdType\": \"<string>\",\n    \"releaseCharacter\": \"<string>\",\n    \"remoteIdType\": \"<string>\",\n    \"repetitionSeparator\": \"<string>\",\n    \"segmentTerminator\": \"<string>\",\n    \"delimiters\": \"<object>\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/controls/interchange-controls/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"controls",
+										"interchange-controls",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "a7b6eaf6-7d07-4add-b061-4c2546e6e378",
+											"key": "id",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) Interchange control ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Interchange control not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"version\": \"<string>\",\n    \"localId\": \"<string>\",\n    \"remoteId\": \"<string>\",\n    \"standard\": \"<string>\",\n    \"testIndicator\": \"<string>\",\n    \"agencyCode\": \"<string>\",\n    \"createdAt\": {},\n    \"industryCode\": \"<string>\",\n    \"lastControlNumber\": \"<long>\",\n    \"release\": \"<string>\",\n    \"updatedAt\": {},\n    \"componentSeparator\": \"<string>\",\n    \"decimalMark\": \"<string>\",\n    \"elementSeparator\": \"<string>\",\n    \"localIdType\": \"<string>\",\n    \"releaseCharacter\": \"<string>\",\n    \"remoteIdType\": \"<string>\",\n    \"repetitionSeparator\": \"<string>\",\n    \"segmentTerminator\": \"<string>\",\n    \"delimiters\": \"<object>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/controls/interchange-controls/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"interchange-controls",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Interchange control updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"version\": \"<string>\",\n    \"localId\": \"<string>\",\n    \"remoteId\": \"<string>\",\n    \"standard\": \"<string>\",\n    \"testIndicator\": \"<string>\",\n    \"agencyCode\": \"<string>\",\n    \"createdAt\": {},\n    \"industryCode\": \"<string>\",\n    \"lastControlNumber\": \"<long>\",\n    \"release\": \"<string>\",\n    \"updatedAt\": {},\n    \"componentSeparator\": \"<string>\",\n    \"decimalMark\": \"<string>\",\n    \"elementSeparator\": \"<string>\",\n    \"localIdType\": \"<string>\",\n    \"releaseCharacter\": \"<string>\",\n    \"remoteIdType\": \"<string>\",\n    \"repetitionSeparator\": \"<string>\",\n    \"segmentTerminator\": \"<string>\",\n    \"delimiters\": \"<object>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/controls/interchange-controls/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"interchange-controls",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"version\": \"<string>\",\n \"localId\": \"<string>\",\n \"remoteId\": \"<string>\",\n \"standard\": \"<string>\",\n \"testIndicator\": \"<string>\",\n \"agencyCode\": \"<string>\",\n \"createdAt\": {},\n \"industryCode\": \"<string>\",\n \"lastControlNumber\": \"<long>\",\n \"release\": \"<string>\",\n \"updatedAt\": {},\n \"uuid\": \"<string>\",\n \"componentSeparator\": \"<string>\",\n \"decimalMark\": \"<string>\",\n \"elementSeparator\": \"<string>\",\n \"localIdType\": \"<string>\",\n \"releaseCharacter\": \"<string>\",\n \"remoteIdType\": \"<string>\",\n \"repetitionSeparator\": \"<string>\",\n \"segmentTerminator\": \"<string>\",\n \"delimiters\": \"<object>\"\n}"
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "partners",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "interchange-controls",
+									"item": [
+										{
+											"name": "Retrieve a trading partner's interchange controls",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/controls/partners/:id/interchange-controls",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"controls",
+														"partners",
+														":id",
+														"interchange-controls"
+													],
+													"variable": [
+														{
+															"id": "dff4f083-f4c6-4c8e-ab6f-ccbd6d781391",
+															"key": "id",
+															"value": "<string>",
+															"type": "string",
+															"description": "(Required) TradingPartner ID"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Interchange control list retrieved",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/controls/partners/:id/interchange-controls",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"controls",
+																"partners",
+																":id",
+																"interchange-controls"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "[\n {\n  \"version\": \"<string>\",\n  \"localId\": \"<string>\",\n  \"remoteId\": \"<string>\",\n  \"standard\": \"<string>\",\n  \"testIndicator\": \"<string>\",\n  \"agencyCode\": \"<string>\",\n  \"createdAt\": {},\n  \"industryCode\": \"<string>\",\n  \"lastControlNumber\": \"<long>\",\n  \"release\": \"<string>\",\n  \"updatedAt\": {},\n  \"uuid\": \"<string>\",\n  \"componentSeparator\": \"<string>\",\n  \"decimalMark\": \"<string>\",\n  \"elementSeparator\": \"<string>\",\n  \"localIdType\": \"<string>\",\n  \"releaseCharacter\": \"<string>\",\n  \"remoteIdType\": \"<string>\",\n  \"repetitionSeparator\": \"<string>\",\n  \"segmentTerminator\": \"<string>\",\n  \"delimiters\": \"<object>\"\n },\n {\n  \"version\": \"<string>\",\n  \"localId\": \"<string>\",\n  \"remoteId\": \"<string>\",\n  \"standard\": \"<string>\",\n  \"testIndicator\": \"<string>\",\n  \"agencyCode\": \"<string>\",\n  \"createdAt\": {},\n  \"industryCode\": \"<string>\",\n  \"lastControlNumber\": \"<long>\",\n  \"release\": \"<string>\",\n  \"updatedAt\": {},\n  \"uuid\": \"<string>\",\n  \"componentSeparator\": \"<string>\",\n  \"decimalMark\": \"<string>\",\n  \"elementSeparator\": \"<string>\",\n  \"localIdType\": \"<string>\",\n  \"releaseCharacter\": \"<string>\",\n  \"remoteIdType\": \"<string>\",\n  \"repetitionSeparator\": \"<string>\",\n  \"segmentTerminator\": \"<string>\",\n  \"delimiters\": \"<object>\"\n }\n]"
+												},
+												{
+													"name": "TradingPartner Not Found",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/controls/partners/:id/interchange-controls",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"controls",
+																"partners",
+																":id",
+																"interchange-controls"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "Create a new interchange control record for a trading partner.",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"version\": \"<string>\",\n    \"localId\": \"<string>\",\n    \"remoteId\": \"<string>\",\n    \"standard\": \"<string>\",\n    \"testIndicator\": \"<string>\",\n    \"agencyCode\": \"<string>\",\n    \"createdAt\": {},\n    \"industryCode\": \"<string>\",\n    \"lastControlNumber\": \"<long>\",\n    \"release\": \"<string>\",\n    \"updatedAt\": {},\n    \"componentSeparator\": \"<string>\",\n    \"decimalMark\": \"<string>\",\n    \"elementSeparator\": \"<string>\",\n    \"localIdType\": \"<string>\",\n    \"releaseCharacter\": \"<string>\",\n    \"remoteIdType\": \"<string>\",\n    \"repetitionSeparator\": \"<string>\",\n    \"segmentTerminator\": \"<string>\",\n    \"delimiters\": \"<object>\"\n}",
+													"options": {
+														"raw": {}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/controls/partners/:id/interchange-controls",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"controls",
+														"partners",
+														":id",
+														"interchange-controls"
+													],
+													"variable": [
+														{
+															"id": "ef2eddd0-b1e3-4c6d-ac29-45b322d33a1f",
+															"key": "id",
+															"value": "<string>",
+															"type": "string",
+															"description": "(Required) TradingPartner ID"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Bad Request",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"version\": \"<string>\",\n    \"localId\": \"<string>\",\n    \"remoteId\": \"<string>\",\n    \"standard\": \"<string>\",\n    \"testIndicator\": \"<string>\",\n    \"agencyCode\": \"<string>\",\n    \"createdAt\": {},\n    \"industryCode\": \"<string>\",\n    \"lastControlNumber\": \"<long>\",\n    \"release\": \"<string>\",\n    \"updatedAt\": {},\n    \"componentSeparator\": \"<string>\",\n    \"decimalMark\": \"<string>\",\n    \"elementSeparator\": \"<string>\",\n    \"localIdType\": \"<string>\",\n    \"releaseCharacter\": \"<string>\",\n    \"remoteIdType\": \"<string>\",\n    \"repetitionSeparator\": \"<string>\",\n    \"segmentTerminator\": \"<string>\",\n    \"delimiters\": \"<object>\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/controls/partners/:id/interchange-controls",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"controls",
+																"partners",
+																":id",
+																"interchange-controls"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Duplicate tradingPartner name",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"version\": \"<string>\",\n    \"localId\": \"<string>\",\n    \"remoteId\": \"<string>\",\n    \"standard\": \"<string>\",\n    \"testIndicator\": \"<string>\",\n    \"agencyCode\": \"<string>\",\n    \"createdAt\": {},\n    \"industryCode\": \"<string>\",\n    \"lastControlNumber\": \"<long>\",\n    \"release\": \"<string>\",\n    \"updatedAt\": {},\n    \"componentSeparator\": \"<string>\",\n    \"decimalMark\": \"<string>\",\n    \"elementSeparator\": \"<string>\",\n    \"localIdType\": \"<string>\",\n    \"releaseCharacter\": \"<string>\",\n    \"remoteIdType\": \"<string>\",\n    \"repetitionSeparator\": \"<string>\",\n    \"segmentTerminator\": \"<string>\",\n    \"delimiters\": \"<object>\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/controls/partners/:id/interchange-controls",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"controls",
+																"partners",
+																":id",
+																"interchange-controls"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "Conflict",
+													"code": 409,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Created",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"version\": \"<string>\",\n    \"localId\": \"<string>\",\n    \"remoteId\": \"<string>\",\n    \"standard\": \"<string>\",\n    \"testIndicator\": \"<string>\",\n    \"agencyCode\": \"<string>\",\n    \"createdAt\": {},\n    \"industryCode\": \"<string>\",\n    \"lastControlNumber\": \"<long>\",\n    \"release\": \"<string>\",\n    \"updatedAt\": {},\n    \"componentSeparator\": \"<string>\",\n    \"decimalMark\": \"<string>\",\n    \"elementSeparator\": \"<string>\",\n    \"localIdType\": \"<string>\",\n    \"releaseCharacter\": \"<string>\",\n    \"remoteIdType\": \"<string>\",\n    \"repetitionSeparator\": \"<string>\",\n    \"segmentTerminator\": \"<string>\",\n    \"delimiters\": \"<object>\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/controls/partners/:id/interchange-controls",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"controls",
+																"partners",
+																":id",
+																"interchange-controls"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Location",
+															"value": "<uri>",
+															"description": "Location of the newly created interchange control record"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"version\": \"<string>\",\n \"localId\": \"<string>\",\n \"remoteId\": \"<string>\",\n \"standard\": \"<string>\",\n \"testIndicator\": \"<string>\",\n \"agencyCode\": \"<string>\",\n \"createdAt\": {},\n \"industryCode\": \"<string>\",\n \"lastControlNumber\": \"<long>\",\n \"release\": \"<string>\",\n \"updatedAt\": {},\n \"uuid\": \"<string>\",\n \"componentSeparator\": \"<string>\",\n \"decimalMark\": \"<string>\",\n \"elementSeparator\": \"<string>\",\n \"localIdType\": \"<string>\",\n \"releaseCharacter\": \"<string>\",\n \"remoteIdType\": \"<string>\",\n \"repetitionSeparator\": \"<string>\",\n \"segmentTerminator\": \"<string>\",\n \"delimiters\": \"<object>\"\n}"
+												}
+											]
+										}
+									],
+									"protocolProfileBehavior": {},
+									"_postman_isSubFolder": true
+								},
+								{
+									"name": "Retrieve a trading partner by unique identifier",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/controls/partners/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"partners",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "d55d7ead-b177-4f39-a6cc-230963dc7ca0",
+													"key": "id",
+													"value": "<string>",
+													"type": "string",
+													"description": "(Required) TradingPartner ID"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "TradingPartner Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/controls/partners/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"controls",
+														"partners",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "TradingPartner Successfully Retrieved",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/controls/partners/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"controls",
+														"partners",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"name\": \"<string>\",\n \"createdAt\": {},\n \"updatedAt\": {},\n \"uuid\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Retrieve a list of trading partners, optionally filtering by name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/controls/partners?name=Retrieve a list of trading partners that are known to the authenticated user only",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"controls",
+										"partners"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Retrieve a list of trading partners that are known to the authenticated user only"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "TradingPartner list retrieved",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/controls/partners?name=Retrieve a list of trading partners that are known to the authenticated user only",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"partners"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "Retrieve a list of trading partners that are known to the authenticated user only"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n {\n  \"name\": \"<string>\",\n  \"createdAt\": {},\n  \"updatedAt\": {},\n  \"uuid\": \"<string>\"\n },\n {\n  \"name\": \"<string>\",\n  \"createdAt\": {},\n  \"updatedAt\": {},\n  \"uuid\": \"<string>\"\n }\n]"
+								}
+							]
+						},
+						{
+							"name": "Create a new trading partner tradingPartner",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"<string>\",\n    \"createdAt\": {},\n    \"updatedAt\": {}\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/controls/partners",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"controls",
+										"partners"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Duplicate tradingPartner name",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"<string>\",\n    \"createdAt\": {},\n    \"updatedAt\": {}\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/controls/partners",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"partners"
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"<string>\",\n    \"createdAt\": {},\n    \"updatedAt\": {}\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/controls/partners",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"partners"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Location",
+											"value": "<uri>",
+											"description": "Location of the newly created trading partner tradingPartner"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"name\": \"<string>\",\n \"createdAt\": {},\n \"updatedAt\": {},\n \"uuid\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"<string>\",\n    \"createdAt\": {},\n    \"updatedAt\": {}\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/controls/partners",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"controls",
+												"partners"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "history",
+			"item": [
+				{
+					"name": "groups/{uuid}",
+					"item": [
+						{
+							"name": "/history/groups/:uuid",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/history/groups/:uuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"history",
+										"groups",
+										":uuid"
+									],
+									"variable": [
+										{
+											"id": "b8133f85-d5c6-4a2f-98dd-6774964d8c3e",
+											"key": "uuid",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/history/groups/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"history",
+												"groups",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/history/groups/:uuid/transactions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/history/groups/:uuid/transactions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"history",
+										"groups",
+										":uuid",
+										"transactions"
+									],
+									"variable": [
+										{
+											"id": "e0a302c7-818e-41f8-9d32-94e88d7c1a5e",
+											"key": "uuid",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/history/groups/:uuid/transactions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"history",
+												"groups",
+												":uuid",
+												"transactions"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "interchanges",
+					"item": [
+						{
+							"name": "{uuid}",
+							"item": [
+								{
+									"name": "/history/interchanges/:uuid",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/history/interchanges/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"history",
+												"interchanges",
+												":uuid"
+											],
+											"variable": [
+												{
+													"id": "7e4c4d12-3bc2-4137-b04b-57280377f3e6",
+													"key": "uuid",
+													"value": "<string>",
+													"type": "string",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/history/interchanges/:uuid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"history",
+														"interchanges",
+														":uuid"
+													],
+													"variable": [
+														{
+															"key": "uuid"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/history/interchanges/:uuid/groups",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/history/interchanges/:uuid/groups",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"history",
+												"interchanges",
+												":uuid",
+												"groups"
+											],
+											"variable": [
+												{
+													"id": "2ac8b591-a4ff-4a81-8362-596f60fce5fc",
+													"key": "uuid",
+													"value": "<string>",
+													"type": "string",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/history/interchanges/:uuid/groups",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"history",
+														"interchanges",
+														":uuid",
+														"groups"
+													],
+													"variable": [
+														{
+															"key": "uuid"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/history/interchanges/:uuid/relationships/acknowledgement",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/history/interchanges/:uuid/relationships/acknowledgement",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"history",
+												"interchanges",
+												":uuid",
+												"relationships",
+												"acknowledgement"
+											],
+											"variable": [
+												{
+													"id": "5c5c9b32-5c0d-49b7-8417-2053e8bf597a",
+													"key": "uuid",
+													"value": "<string>",
+													"type": "string",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/history/interchanges/:uuid/relationships/acknowledgement",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"history",
+														"interchanges",
+														":uuid",
+														"relationships",
+														"acknowledgement"
+													],
+													"variable": [
+														{
+															"key": "uuid"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/history/interchanges/:uuid/transactions",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/history/interchanges/:uuid/transactions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"history",
+												"interchanges",
+												":uuid",
+												"transactions"
+											],
+											"variable": [
+												{
+													"id": "e438c8fe-3705-4eed-9447-dea377aed88c",
+													"key": "uuid",
+													"value": "<string>",
+													"type": "string",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/history/interchanges/:uuid/transactions",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"history",
+														"interchanges",
+														":uuid",
+														"transactions"
+													],
+													"variable": [
+														{
+															"key": "uuid"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "/history/interchanges",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/history/interchanges?page=1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"history",
+										"interchanges"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/history/interchanges?page=1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"history",
+												"interchanges"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "/history/transactions/:uuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/history/transactions/:uuid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"history",
+								"transactions",
+								":uuid"
+							],
+							"variable": [
+								{
+									"id": "2052281e-109c-41df-a110-5903555922dc",
+									"key": "uuid",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/history/transactions/:uuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"history",
+										"transactions",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "schemas",
+			"item": [
+				{
+					"name": "{standard}/{type}/{version}/{file}",
+					"item": [
+						{
+							"name": "/schemas/:standard/:type/:version/:file",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/schemas/:standard/:type/:version/:file",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"schemas",
+										":standard",
+										":type",
+										":version",
+										":file"
+									],
+									"variable": [
+										{
+											"id": "23bb7cce-1afe-4e1b-8a21-f86b790a755a",
+											"key": "file",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) "
+										},
+										{
+											"id": "341b8b37-ccab-44cc-963d-26f71b712099",
+											"key": "standard",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) "
+										},
+										{
+											"id": "c25c2bac-372c-4691-9725-05f8aaf1edf0",
+											"key": "type",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) "
+										},
+										{
+											"id": "ec84bdbe-6bd6-4db8-905a-1c090b83042f",
+											"key": "version",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/schemas/:standard/:type/:version/:file",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"schemas",
+												":standard",
+												":type",
+												":version",
+												":file"
+											],
+											"variable": [
+												{
+													"key": "standard"
+												},
+												{
+													"key": "type"
+												},
+												{
+													"key": "version"
+												},
+												{
+													"key": "file"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "\"<object>\""
+								}
+							]
+						},
+						{
+							"name": "/schemas/:standard/:type/:version/:file",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/schemas/:standard/:type/:version/:file",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"schemas",
+										":standard",
+										":type",
+										":version",
+										":file"
+									],
+									"variable": [
+										{
+											"id": "f8b48950-06c0-4ca8-8e4c-74826197f340",
+											"key": "file",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) "
+										},
+										{
+											"id": "c4ee97e8-3be5-4a85-80ca-45b5426f3d90",
+											"key": "standard",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) "
+										},
+										{
+											"id": "f2817474-abb0-4cce-8a12-05b1257bae2b",
+											"key": "type",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) "
+										},
+										{
+											"id": "8a848adf-ba71-404f-bde0-491fcb9eb3be",
+											"key": "version",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/schemas/:standard/:type/:version/:file",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"schemas",
+												":standard",
+												":type",
+												":version",
+												":file"
+											],
+											"variable": [
+												{
+													"key": "standard"
+												},
+												{
+													"key": "type"
+												},
+												{
+													"key": "version"
+												},
+												{
+													"key": "file"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Retrieve a list of transaction schemas known to the system",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/schemas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"schemas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/schemas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"schemas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Create a new transaction schema to be used for EDI validation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "standard",
+									"value": "<string>",
+									"type": "text"
+								},
+								{
+									"key": "agencyCode",
+									"value": "<string>",
+									"type": "text"
+								},
+								{
+									"key": "version",
+									"value": "<string>",
+									"type": "text"
+								},
+								{
+									"key": "release",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "industryCode",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "transactionCode",
+									"value": "<string>",
+									"type": "text"
+								},
+								{
+									"key": "senderIdType",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "senderId",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "receiverIdType",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "receiverId",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "<object>",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/schemas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"schemas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "standard",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "agencyCode",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "version",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "release",
+											"value": "",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "industryCode",
+											"value": "",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "transactionCode",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "senderIdType",
+											"value": "",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "senderId",
+											"value": "",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "receiverIdType",
+											"value": "",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "receiverId",
+											"value": "",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"value": "<object>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/schemas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"schemas"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Duplicate schema",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "standard",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "agencyCode",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "version",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "release",
+											"value": "",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "industryCode",
+											"value": "",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "transactionCode",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "senderIdType",
+											"value": "",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "senderId",
+											"value": "",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "receiverIdType",
+											"value": "",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "receiverId",
+											"value": "",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"value": "<object>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											},
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/schemas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"schemas"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/schemas/control",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/schemas/control?standard=<string>&version=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"schemas",
+								"control"
+							],
+							"query": [
+								{
+									"key": "standard",
+									"value": "<string>"
+								},
+								{
+									"key": "version",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/schemas/control?standard=<string>&version=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"schemas",
+										"control"
+									],
+									"query": [
+										{
+											"key": "standard",
+											"value": "<string>"
+										},
+										{
+											"key": "version",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/schema+json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<object>\""
+						}
+					]
+				},
+				{
+					"name": "/schemas/transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/schemas/transaction?standard=<string>&type=<string>&version=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"schemas",
+								"transaction"
+							],
+							"query": [
+								{
+									"key": "standard",
+									"value": "<string>"
+								},
+								{
+									"key": "type",
+									"value": "<string>"
+								},
+								{
+									"key": "version",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/schemas/transaction?standard=<string>&type=<string>&version=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"schemas",
+										"transaction"
+									],
+									"query": [
+										{
+											"key": "standard",
+											"value": "<string>"
+										},
+										{
+											"key": "type",
+											"value": "<string>"
+										},
+										{
+											"key": "version",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/schema+json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<object>\""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "transactions",
+			"item": [
+				{
+					"name": "Submit an EDI interchange for validation and conversion (Persistent)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) Trading partner name (previously configured)\n",
+								"key": "X-FresnoPartnerName",
+								"value": "DEFAULT"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/EDI-X12"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"<object>\"",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/transactions/inbound",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transactions",
+								"inbound"
+							]
+						},
+						"description": "Submit an EDI interchange for validation and conversion to a back-end application. This operation\naccepts a well-formed EDI interchange and (when successfully translated) responds with an\nEDI format corresponding to the input (e.g. an X12 `997`). The transformed interchange is written to\nlocal server storage (other other queuing system) to be retrieved by or forwarded to a back-end\napplication for further processing.\n"
+					},
+					"response": [
+						{
+							"name": "Accepted",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Trading partner name (previously configured)\n",
+										"key": "X-FresnoPartnerName",
+										"value": "DEFAULT"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\"<object>\""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/transactions/inbound",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transactions",
+										"inbound"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Location",
+									"value": "<uri>",
+									"description": "Location where the converted transaction has been stored"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/EDI-X12"
+								}
+							],
+							"cookie": [],
+							"body": "<object>"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Trading partner name (previously configured)\n",
+										"key": "X-FresnoPartnerName",
+										"value": "DEFAULT"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\"<object>\""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/transactions/inbound",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transactions",
+										"inbound"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/EDI-X12"
+								}
+							],
+							"cookie": [],
+							"body": "<object>"
+						}
+					]
+				},
+				{
+					"name": "Submit an XML format interchange for conversion to EDI (Persistent)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) Trading partner name (previously configured)\n",
+								"key": "X-FresnoPartnerName",
+								"value": "DEFAULT"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"<element>(string)</element>\"",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/transactions/outbound",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transactions",
+								"outbound"
+							]
+						},
+						"description": "Submit an XML interchange for validation and conversion to EDI. This operation\naccepts a well-formed XML interchange and (when successfully translated) responds with an\nEDI format corresponding to the input. Information about the interchange (transaction control\nnumbers, types of transactions, etc.) is persisted to the Fresno database for tracking and\nto support acknowledgement confirmation.\n"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Trading partner name (previously configured)\n",
+										"key": "X-FresnoPartnerName",
+										"value": "DEFAULT"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\"<element>(string)</element>\""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/transactions/outbound",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transactions",
+										"outbound"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/EDI-X12"
+								}
+							],
+							"cookie": [],
+							"body": "<object>"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Trading partner name (previously configured)\n",
+										"key": "X-FresnoPartnerName",
+										"value": "DEFAULT"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\"<element>(string)</element>\""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/transactions/outbound",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transactions",
+										"outbound"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Translate an EDI interchange (Persistent)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) Trading partner name (previously configured)\n",
+								"key": "X-FresnoPartnerName",
+								"value": "DEFAULT"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/EDI-X12"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"<object>\"",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/transactions/translator",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transactions",
+								"translator"
+							]
+						},
+						"description": "Translate an EDI interchange and persist meta information and validation status in history.\nThis operation accepts a well-formed EDI interchange and (when successfully translated) responds\nwith an XML representation of the interchange. The `Link` header includes a URI that may be used\nfor retrieval of validation/status information pertaining to the interchange.\n"
+					},
+					"response": [
+						{
+							"name": "OK - Interchange translated without fatal errors",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Trading partner name (previously configured)\n",
+										"key": "X-FresnoPartnerName",
+										"value": "DEFAULT"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\"<object>\""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/transactions/translator",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transactions",
+										"translator"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Link",
+									"value": "",
+									"description": "Location to retrieve the associated acknowledgement/validation information associated with the request."
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Bad Request - Interchange translation encounted fatal errors with the input",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Trading partner name (previously configured)\n",
+										"key": "X-FresnoPartnerName",
+										"value": "DEFAULT"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\"<object>\""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/transactions/translator",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transactions",
+										"translator"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Link",
+									"value": "",
+									"description": "Location to retrieve the associated acknowledgement/validation information associated with the request."
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Validate an EDI interchange (Non-persistent)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) Trading partner name (previously configured)\n",
+								"key": "X-FresnoPartnerName",
+								"value": "DEFAULT"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/EDI-X12"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"<object>\"",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/transactions/validator",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transactions",
+								"validator"
+							]
+						},
+						"description": "Validate an EDI interchange *without* persisting meta information and validation status in history.\nThis operation accepts a well-formed EDI interchange and responds with either an EDI format\ncorresponding to the input or a JSON format describing the result of validation.\n"
+					},
+					"response": [
+						{
+							"name": "Bad Request - Interchange validation encounted fatal errors with the input",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Trading partner name (previously configured)\n",
+										"key": "X-FresnoPartnerName",
+										"value": "DEFAULT"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\"<object>\""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/transactions/validator",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transactions",
+										"validator"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/EDIFACT"
+								}
+							],
+							"cookie": [],
+							"body": "<object>"
+						},
+						{
+							"name": "OK - Interchange validated without fatal errors",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Trading partner name (previously configured)\n",
+										"key": "X-FresnoPartnerName",
+										"value": "DEFAULT"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\"<object>\""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/transactions/validator",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transactions",
+										"validator"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"interchanges\": [\n  {\n   \"agencyCode\": \"<string>\",\n   \"controlReference\": \"<string>\",\n   \"errors\": [\n    {\n     \"errors\": [\n      {\n       \"component\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"element\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"occurrence\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"component\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"element\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"occurrence\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"position\": \"<integer>\",\n     \"segment\": \"<string>\",\n     \"type\": \"<string>\"\n    },\n    {\n     \"errors\": [\n      {\n       \"component\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"element\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"occurrence\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"component\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"element\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"occurrence\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"position\": \"<integer>\",\n     \"segment\": \"<string>\",\n     \"type\": \"<string>\"\n    }\n   ],\n   \"industryCode\": \"<string>\",\n   \"release\": \"<string>\",\n   \"version\": \"<string>\",\n   \"groups\": [\n    {\n     \"agencyCode\": \"<string>\",\n     \"controlReference\": \"<string>\",\n     \"errors\": [\n      {\n       \"errors\": [\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        },\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        }\n       ],\n       \"position\": \"<integer>\",\n       \"segment\": \"<string>\",\n       \"type\": \"<string>\"\n      },\n      {\n       \"errors\": [\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        },\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        }\n       ],\n       \"position\": \"<integer>\",\n       \"segment\": \"<string>\",\n       \"type\": \"<string>\"\n      }\n     ],\n     \"industryCode\": \"<string>\",\n     \"release\": \"<string>\",\n     \"version\": \"<string>\",\n     \"receiver\": {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\"\n     },\n     \"sender\": {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\"\n     },\n     \"transactions\": [\n      {\n       \"agencyCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"controlReference\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"errors\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"industryCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"release\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"version\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"agencyCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"controlReference\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"errors\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"industryCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"release\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"version\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"type\": \"<string>\"\n    },\n    {\n     \"agencyCode\": \"<string>\",\n     \"controlReference\": \"<string>\",\n     \"errors\": [\n      {\n       \"errors\": [\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        },\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        }\n       ],\n       \"position\": \"<integer>\",\n       \"segment\": \"<string>\",\n       \"type\": \"<string>\"\n      },\n      {\n       \"errors\": [\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        },\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        }\n       ],\n       \"position\": \"<integer>\",\n       \"segment\": \"<string>\",\n       \"type\": \"<string>\"\n      }\n     ],\n     \"industryCode\": \"<string>\",\n     \"release\": \"<string>\",\n     \"version\": \"<string>\",\n     \"receiver\": {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\"\n     },\n     \"sender\": {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\"\n     },\n     \"transactions\": [\n      {\n       \"agencyCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"controlReference\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"errors\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"industryCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"release\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"version\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"agencyCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"controlReference\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"errors\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"industryCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"release\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"version\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"type\": \"<string>\"\n    }\n   ],\n   \"receiver\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n   },\n   \"sender\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n   },\n   \"transactions\": [\n    {\n     \"agencyCode\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"controlReference\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"errors\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"industryCode\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"release\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"version\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     }\n    },\n    {\n     \"agencyCode\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"controlReference\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"errors\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"industryCode\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"release\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"version\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     }\n    }\n   ]\n  },\n  {\n   \"agencyCode\": \"<string>\",\n   \"controlReference\": \"<string>\",\n   \"errors\": [\n    {\n     \"errors\": [\n      {\n       \"component\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"element\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"occurrence\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"component\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"element\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"occurrence\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"position\": \"<integer>\",\n     \"segment\": \"<string>\",\n     \"type\": \"<string>\"\n    },\n    {\n     \"errors\": [\n      {\n       \"component\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"element\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"occurrence\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"component\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"element\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"occurrence\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"position\": \"<integer>\",\n     \"segment\": \"<string>\",\n     \"type\": \"<string>\"\n    }\n   ],\n   \"industryCode\": \"<string>\",\n   \"release\": \"<string>\",\n   \"version\": \"<string>\",\n   \"groups\": [\n    {\n     \"agencyCode\": \"<string>\",\n     \"controlReference\": \"<string>\",\n     \"errors\": [\n      {\n       \"errors\": [\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        },\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        }\n       ],\n       \"position\": \"<integer>\",\n       \"segment\": \"<string>\",\n       \"type\": \"<string>\"\n      },\n      {\n       \"errors\": [\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        },\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        }\n       ],\n       \"position\": \"<integer>\",\n       \"segment\": \"<string>\",\n       \"type\": \"<string>\"\n      }\n     ],\n     \"industryCode\": \"<string>\",\n     \"release\": \"<string>\",\n     \"version\": \"<string>\",\n     \"receiver\": {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\"\n     },\n     \"sender\": {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\"\n     },\n     \"transactions\": [\n      {\n       \"agencyCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"controlReference\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"errors\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"industryCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"release\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"version\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"agencyCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"controlReference\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"errors\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"industryCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"release\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"version\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"type\": \"<string>\"\n    },\n    {\n     \"agencyCode\": \"<string>\",\n     \"controlReference\": \"<string>\",\n     \"errors\": [\n      {\n       \"errors\": [\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        },\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        }\n       ],\n       \"position\": \"<integer>\",\n       \"segment\": \"<string>\",\n       \"type\": \"<string>\"\n      },\n      {\n       \"errors\": [\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        },\n        {\n         \"component\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"element\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"occurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         },\n         \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n         }\n        }\n       ],\n       \"position\": \"<integer>\",\n       \"segment\": \"<string>\",\n       \"type\": \"<string>\"\n      }\n     ],\n     \"industryCode\": \"<string>\",\n     \"release\": \"<string>\",\n     \"version\": \"<string>\",\n     \"receiver\": {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\"\n     },\n     \"sender\": {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\"\n     },\n     \"transactions\": [\n      {\n       \"agencyCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"controlReference\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"errors\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"industryCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"release\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"version\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"agencyCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"controlReference\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"errors\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"industryCode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"release\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"version\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"type\": \"<string>\"\n    }\n   ],\n   \"receiver\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n   },\n   \"sender\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n   },\n   \"transactions\": [\n    {\n     \"agencyCode\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"controlReference\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"errors\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"industryCode\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"release\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"version\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     }\n    },\n    {\n     \"agencyCode\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"controlReference\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"errors\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"industryCode\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"release\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"version\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     }\n    }\n   ]\n  }\n ]\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "/config.js",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/config.js",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"config.js"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/config.js",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"config.js"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/javascript"
+						}
+					],
+					"cookie": [],
+					"body": "<string>"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

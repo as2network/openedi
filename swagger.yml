@@ -1,0 +1,1553 @@
+---
+openapi: 3.0.3
+info:
+  title: EDI Management API
+  description: "EDI validation, translation, and management system."
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  contact:
+    name: Open EDI Service Broker
+    url: https://www.freighttrust.com
+    email: contact@freighttrust.com
+  version: 1.0.7
+security:
+- APIKeyScheme: []
+  OAuth2Scheme: []
+tags:
+- name: Transactions
+  description: "Perform EDI validation and translation to XML, or translation from\
+    \ XML to EDI"
+- name: History
+  description: Channel transaction history
+- name: Administration
+  description: Channel maintenance and configuration
+- name: Configuration
+  description: Configuration information for a web-based user interface
+- name: Schema Maintenance
+  description: Define and review the EDI schemas available in the system
+paths:
+  /configs:
+    get:
+      tags:
+      - Configuration
+      summary: Retrieve JavaScript module for front end configuration
+      responses:
+        "200":
+          description: OK
+          content:
+            text/javascript:
+              schema:
+                type: string
+      security: []
+  /controls/channels:
+    get:
+      tags:
+      - Administration
+      summary: "Retrieve a list of channels, optionally filtering by name"
+      parameters:
+      - name: name
+        in: query
+        schema:
+          default: " a-zA-Z "
+          type: string
+      responses:
+        "200":
+          description: OK; Record listing retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Channel'
+    post:
+      tags:
+      - Administration
+      summary: Create a new channel
+      requestBody:
+        description: " a-zA-Z "
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Channel'
+        required: true
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              description: Location of the newly created channel
+              x-style: simple
+              schema:
+                format: uri
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+        "409":
+          $ref: '#/components/responses/DuplicateRecordConflict'
+  /controls/channels/{id}:
+    get:
+      tags:
+      - Administration
+      summary: Retrieve a channel by unique identifier
+      parameters:
+      - name: id
+        in: path
+        description: Channel ID
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK; Record retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+        "404":
+          $ref: '#/components/responses/RecordNotFound'
+    put:
+      tags:
+      - Administration
+      summary: Update a channel
+      parameters:
+      - $ref: '#/components/parameters/id'
+      requestBody:
+        description: " a-zA-Z "
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Channel'
+        required: true
+      responses:
+        "200":
+          description: OK; Record updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+        "404":
+          $ref: '#/components/responses/RecordNotFound'
+  /controls/group-controls:
+    get:
+      tags:
+      - Administration
+      summary: Retrieve an interchange control's group control list
+      parameters:
+      - name: interchangeControlId
+        in: query
+        description: Interchange control ID
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK; Record listing retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GroupControl'
+    post:
+      tags:
+      - Administration
+      summary: Create a new group control record for an interchange control.
+      requestBody:
+        description: " a-zA-Z "
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupControl'
+        required: true
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              description: Location of the newly created record
+              x-style: simple
+              schema:
+                format: uri
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupControl'
+        "409":
+          $ref: '#/components/responses/DuplicateRecordConflict'
+  /controls/group-controls/{id}:
+    get:
+      tags:
+      - Administration
+      summary: Retrieve a group control by identifier
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        "200":
+          description: OK; Record retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupControl'
+        "404":
+          $ref: '#/components/responses/RecordNotFound'
+    put:
+      tags:
+      - Administration
+      summary: Updates a group control
+      parameters:
+      - $ref: '#/components/parameters/id'
+      requestBody:
+        description: " a-zA-Z "
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupControl'
+        required: true
+      responses:
+        "200":
+          description: OK; Record updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupControl'
+        "404":
+          $ref: '#/components/responses/RecordNotFound'
+  /controls/interchange-controls:
+    get:
+      tags:
+      - Administration
+      summary: Retrieve a channel's interchange controls
+      parameters:
+      - name: channelId
+        in: query
+        description: Channel ID
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK; Record listing retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InterchangeControl'
+        "404":
+          $ref: '#/components/responses/RecordNotFound'
+    post:
+      tags:
+      - Administration
+      summary: Create a new interchange control record for a channel.
+      requestBody:
+        description: " a-zA-Z "
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InterchangeControl'
+        required: true
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              description: Location of the newly created interchange control record
+              x-style: simple
+              schema:
+                format: uri
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InterchangeControl'
+        "409":
+          $ref: '#/components/responses/DuplicateRecordConflict'
+  /controls/interchange-controls/{id}:
+    get:
+      tags:
+      - Administration
+      summary: Retrieve an interchange control by ID
+      parameters:
+      - name: id
+        in: path
+        description: Interchange control ID
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK; Record retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InterchangeControl'
+        "404":
+          $ref: '#/components/responses/RecordNotFound'
+    put:
+      tags:
+      - Administration
+      summary: Updates an interchange control
+      parameters:
+      - name: id
+        in: path
+        description: Interchange control ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: " a-zA-Z "
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InterchangeControl'
+        required: true
+      responses:
+        "200":
+          description: OK; Record updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InterchangeControl'
+        "404":
+          $ref: '#/components/responses/RecordNotFound'
+  /controls/transaction-controls:
+    get:
+      tags:
+      - Administration
+      summary: Retrieve a transaction control list
+      parameters:
+      - name: groupControlId
+        in: query
+        schema:
+          type: string
+      - name: interchangeControlId
+        in: query
+        schema:
+          type: string
+      responses:
+        "400":
+          description: Missing required query parameter(s)
+        "200":
+          description: OK; Record listing retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TransactionControl'
+    post:
+      tags:
+      - Administration
+      summary: Create a new transaction control record for an interchange control.
+      requestBody:
+        description: " a-zA-Z "
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionControl'
+        required: true
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              description: Location of the newly created record
+              x-style: simple
+              schema:
+                format: uri
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionControl'
+        "409":
+          $ref: '#/components/responses/DuplicateRecordConflict'
+  /controls/transaction-controls/{id}:
+    get:
+      tags:
+      - Administration
+      summary: Retrieve a transaction control by ID
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        "200":
+          description: OK; Record retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionControl'
+        "404":
+          $ref: '#/components/responses/RecordNotFound'
+    put:
+      tags:
+      - Administration
+      summary: Update a transaction control
+      parameters:
+      - $ref: '#/components/parameters/id'
+      requestBody:
+        description: " a-zA-Z "
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionControl'
+        required: true
+      responses:
+        "200":
+          description: OK; Record updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionControl'
+        "404":
+          $ref: '#/components/responses/RecordNotFound'
+  /history/groups:
+    get:
+      tags:
+      - History
+      summary: Retrieve a list of functional groups for a particular interchange
+      parameters:
+      - name: interchangeId
+        in: query
+        description: Interchange identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK; Record listing retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Group'
+  /history/groups/{id}:
+    get:
+      tags:
+      - History
+      summary: Retrieve a functional group by identifier
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        "200":
+          description: OK; Record retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        "404":
+          $ref: '#/components/responses/RecordNotFound'
+  /history/interchanges:
+    get:
+      tags:
+      - History
+      summary: Retrieve a list of interchanges
+      parameters:
+      - name: page
+        in: query
+        description: Page number
+        required: true
+        schema:
+          format: int32
+          default: 1
+          type: integer
+      responses:
+        "200":
+          description: OK; Record listing retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Interchange'
+  /history/interchanges/{id}:
+    get:
+      tags:
+      - History
+      summary: Retrieve an interchange by identifier
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK; Record retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interchange'
+        "404":
+          $ref: '#/components/responses/RecordNotFound'
+  /history/interchanges/{interchangeId}/relationships/acknowledgement:
+    get:
+      tags:
+      - History
+      summary: Retrieve an interchange acknowledgement by identifier
+      parameters:
+      - name: interchangeId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK; Record retrieved
+          content:
+            application/EDIFACT:
+              schema:
+                $ref: '#/components/schemas/AcknowledgementEDI'
+            application/EDI-X12:
+              schema:
+                $ref: '#/components/schemas/AcknowledgementEDI'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcknowledgementJSON'
+        "404":
+          $ref: '#/components/responses/RecordNotFound'
+  /history/transactions:
+    get:
+      tags:
+      - History
+      summary: "Retrieve a list of transactions for a particular interchange, group,\
+        \ or date/time range"
+      parameters:
+      - name: dateFrom
+        in: query
+        schema:
+          $ref: '#/components/schemas/OffsetDateTime'
+      - name: dateThru
+        in: query
+        schema:
+          $ref: '#/components/schemas/OffsetDateTime'
+      - name: groupId
+        in: query
+        schema:
+          type: string
+      - name: interchangeId
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK; Record listing retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+  /history/transactions/{id}:
+    get:
+      tags:
+      - History
+      summary: Retrieve a transaction by identifier
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        "200":
+          description: OK; Record retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+  /schemas:
+    get:
+      tags:
+      - Schema Maintenance
+      summary: Retrieve a list of transaction schemas known to the system
+      responses:
+        "200":
+          description: OK
+    post:
+      tags:
+      - Schema Maintenance
+      summary: Create a new transaction schema to be used for EDI validation
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                standard:
+                  pattern: \S
+                  type: string
+                  nullable: false
+                agencyCode:
+                  pattern: \S
+                  type: string
+                  nullable: false
+                version:
+                  pattern: \S
+                  type: string
+                  nullable: false
+                release:
+                  default: " a-zA-Z "
+                  type: string
+                industryCode:
+                  default: " a-zA-Z "
+                  type: string
+                transactionCode:
+                  pattern: \S
+                  type: string
+                  nullable: false
+                senderIdType:
+                  default: " a-zA-Z "
+                  type: string
+                senderId:
+                  default: " a-zA-Z "
+                  type: string
+                receiverIdType:
+                  default: " a-zA-Z "
+                  type: string
+                receiverId:
+                  default: " a-zA-Z "
+                  type: string
+                file:
+                  format: binary
+                  type: string
+      responses:
+        "201":
+          description: Created
+        "409":
+          $ref: '#/components/responses/DuplicateRecordConflict'
+  /schemas/control:
+    get:
+      tags:
+      - Schema Maintenance
+      parameters:
+      - name: standard
+        in: query
+        schema:
+          type: string
+      - name: version
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: Retrieve a control JSON schema for the given standard and version
+          content:
+            application/schema+json:
+              schema:
+                type: object
+  /schemas/transaction:
+    get:
+      tags:
+      - Schema Maintenance
+      parameters:
+      - name: standard
+        in: query
+        schema:
+          type: string
+      - name: type
+        in: query
+        schema:
+          type: string
+      - name: version
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: "Retrieve a transaction JSON schema for the given standard,\
+            \ type, and version"
+          content:
+            application/schema+json:
+              schema:
+                type: object
+  /schemas/{standard}/{type}/{version}/{file}:
+    get:
+      tags:
+      - Schema Maintenance
+      parameters:
+      - name: file
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: standard
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: Fetch the XML for a specific transaction schema
+          content:
+            application/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+    delete:
+      tags:
+      - Schema Maintenance
+      parameters:
+      - name: file
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: standard
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: Remove a specific transaction schema
+          content: {}
+  /transactions/inbound:
+    post:
+      tags:
+      - Transactions
+      summary: Submit an EDI interchange for validation and conversion (Persistent)
+      description: |
+        Submit an EDI interchange for validation and conversion to a back-end application. This operation
+        accepts a well-formed EDI interchange and (when successfully translated) responds with an
+        EDI format corresponding to the input (e.g. an X12 `997`). The transformed interchange is written to
+        local server storage (other other queuing system) to be retrieved by or forwarded to a back-end
+        application for further processing.
+      requestBody:
+        description: EDI payload in either X12 or EDIFACT format
+        content:
+          application/EDI-X12:
+            schema:
+              description: Properly formatted EDI interchange
+              type: object
+          application/EDIFACT:
+            schema:
+              description: Properly formatted EDI interchange
+              type: object
+        required: true
+      responses:
+        "202":
+          description: Accepted
+          headers:
+            Location:
+              description: Location where the converted transaction has been stored
+              x-style: simple
+              schema:
+                format: uri
+                type: string
+          content:
+            application/EDI-X12:
+              schema:
+                $ref: '#/components/schemas/AcknowledgementEDI'
+            application/EDIFACT:
+              schema:
+                $ref: '#/components/schemas/AcknowledgementEDI'
+        "400":
+          description: Bad Request
+          content:
+            application/EDI-X12:
+              schema:
+                $ref: '#/components/schemas/AcknowledgementEDI'
+            application/EDIFACT:
+              schema:
+                $ref: '#/components/schemas/AcknowledgementEDI'
+            text/plain:
+              schema:
+                description: Message describing the nature of the error
+                type: string
+  /transactions/outbound:
+    post:
+      tags:
+      - Transactions
+      summary: Submit an XML format interchange for conversion to EDI (Persistent)
+      description: "Submit an XML interchange for validation and conversion to EDI.\
+        \ This operation\naccepts a well-formed XML interchange and (when successfully\
+        \ translated) responds with an\nEDI format corresponding to the input. Information\
+        \ about the interchange (transaction control\nnumbers, types of transactions,\
+        \ etc.) is persisted to the Fresno database for tracking and\nto support acknowledgement\
+        \ confirmation.\n"
+      requestBody:
+        description: XML payload to be converted to EDI
+        content:
+          application/xml:
+            schema:
+              description: Properly formatted XML interchange
+              type: object
+        required: true
+      responses:
+        "400":
+          description: Bad Request
+        "200":
+          description: OK
+          content:
+            application/EDI-X12:
+              schema:
+                description: EDI formatted interchange
+                type: object
+            application/EDIFACT:
+              schema:
+                description: EDI formatted interchange
+                type: object
+  /transactions/translator:
+    post:
+      tags:
+      - Transactions
+      summary: Translate an EDI interchange (Persistent)
+      description: |
+        Translate an EDI interchange and persist meta information and validation status in history.
+        This operation accepts a well-formed EDI interchange and (when successfully translated) responds
+        with an XML representation of the interchange. The `Link` header includes a URI that may be used
+        for retrieval of validation/status information pertaining to the interchange.
+      requestBody:
+        description: EDI payload in either X12 or EDIFACT format
+        content:
+          application/EDI-X12:
+            schema:
+              description: Properly formatted EDI interchange
+              type: object
+          application/EDIFACT:
+            schema:
+              description: Properly formatted EDI interchange
+              type: object
+        required: true
+      responses:
+        "400":
+          description: Bad Request - Interchange translation encounted fatal errors
+            with the input
+          headers:
+            Link:
+              description: Location to retrieve the associated acknowledgement/validation
+                information associated with the request.
+              x-style: simple
+              schema:
+                type: string
+        "200":
+          description: OK - Interchange translated without fatal errors
+          headers:
+            Link:
+              description: Location to retrieve the associated acknowledgement/validation
+                information associated with the request.
+              x-style: simple
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                description: JSON formatted interchange
+                type: object
+            application/xml:
+              schema:
+                description: XML formatted interchange
+                type: object
+  /transactions/validator:
+    post:
+      tags:
+      - Transactions
+      summary: Validate an EDI interchange (Persistent)
+      description: |
+        Validate an EDI interchange and persist meta information and validation status in history.
+        This operation accepts a well-formed EDI interchange and responds with either an EDI format
+        corresponding to the input or a JSON format describing the result of validation.
+      requestBody:
+        description: EDI payload in either X12 or EDIFACT format
+        content:
+          application/EDI-X12:
+            schema:
+              description: Properly formatted EDI interchange
+              type: object
+          application/EDIFACT:
+            schema:
+              description: Properly formatted EDI interchange
+              type: object
+        required: true
+      responses:
+        "400":
+          description: Bad Request - Interchange validation encounted fatal errors
+            with the input
+          content:
+            application/EDIFACT:
+              schema:
+                $ref: '#/components/schemas/AcknowledgementEDI'
+            application/EDI-X12:
+              schema:
+                $ref: '#/components/schemas/AcknowledgementEDI'
+            text/plain:
+              schema:
+                description: Message describing the nature of the error
+                type: string
+        "200":
+          description: OK - Interchange validated without fatal errors
+          content:
+            application/EDIFACT:
+              schema:
+                $ref: '#/components/schemas/AcknowledgementEDI'
+            application/EDI-X12:
+              schema:
+                $ref: '#/components/schemas/AcknowledgementEDI'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcknowledgementJSON'
+components:
+  schemas:
+    AcknowledgementEDI:
+      description: "An EDI acknowledgement specific to the request body submitted.\n\
+        For example, a 997 for X12 requests or a CONTRL for EDIFACT requests.\n"
+      type: object
+      nullable: true
+    AcknowledgementJSON:
+      type: object
+      properties:
+        interchanges:
+          type: array
+          items:
+            $ref: '#/components/schemas/AcknowledgementJSONInterchange'
+    AcknowledgementJSONAddressee:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+    AcknowledgementJSONElementError:
+      type: object
+      properties:
+        component:
+          format: int32
+          type: integer
+        element:
+          format: int32
+          type: integer
+        occurrence:
+          format: int32
+          type: integer
+        type:
+          type: string
+    AcknowledgementJSONGroup:
+      type: object
+      properties:
+        agencyCode:
+          type: string
+        controlReference:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/AcknowledgementJSONSegmentError'
+        industryCode:
+          type: string
+        release:
+          type: string
+        version:
+          type: string
+        receiver:
+          $ref: '#/components/schemas/AcknowledgementJSONAddressee'
+        sender:
+          $ref: '#/components/schemas/AcknowledgementJSONAddressee'
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AcknowledgementJSONTransaction'
+          nullable: true
+        type:
+          type: string
+    AcknowledgementJSONInterchange:
+      type: object
+      properties:
+        agencyCode:
+          type: string
+        controlReference:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/AcknowledgementJSONSegmentError'
+        industryCode:
+          type: string
+        release:
+          type: string
+        version:
+          type: string
+        groups:
+          description: Present only when the submitted interchange contains functional
+            groups
+          type: array
+          items:
+            $ref: '#/components/schemas/AcknowledgementJSONGroup'
+          nullable: true
+        receiver:
+          $ref: '#/components/schemas/AcknowledgementJSONAddressee'
+        sender:
+          $ref: '#/components/schemas/AcknowledgementJSONAddressee'
+        transactions:
+          description: Present only when the submitted interchange contains transactions
+            directly within the interchange
+          type: array
+          items:
+            $ref: '#/components/schemas/AcknowledgementJSONTransaction'
+          nullable: true
+    AcknowledgementJSONSegmentError:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/AcknowledgementJSONElementError'
+        position:
+          format: int32
+          type: integer
+        segment:
+          type: string
+        type:
+          type: string
+    AcknowledgementJSONTransaction:
+      type: object
+      properties:
+        agencyCode:
+          type: string
+        controlReference:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/AcknowledgementJSONSegmentError'
+        industryCode:
+          type: string
+        release:
+          type: string
+        version:
+          type: string
+        type:
+          type: string
+    Channel:
+      required:
+      - name
+      - title
+      type: object
+      properties:
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/OffsetDateTime'
+          - description: Date and time the record was created
+            readOnly: true
+        name:
+          title: Channel name
+          description: Name to uniquely identify the channel. Read-only for existing
+            records
+          type: string
+          readOnly: true
+        title:
+          title: Readable name for the record
+          maxLength: 255
+          pattern: \S
+          type: string
+          nullable: false
+        updatedAt:
+          allOf:
+          - $ref: '#/components/schemas/OffsetDateTime'
+          - description: Date and time the record was last updated
+            readOnly: true
+        uuid:
+          title: Unique system-generated identifier for the channel
+          type: string
+          readOnly: true
+    Group:
+      type: object
+      properties:
+        ackCode:
+          type: string
+        agencyCode:
+          type: string
+        channel:
+          $ref: '#/components/schemas/Channel'
+        controlCount:
+          type: string
+        controlReference:
+          type: string
+        createdAt:
+          $ref: '#/components/schemas/OffsetDateTime'
+        industryCode:
+          type: string
+        release:
+          type: string
+        updatedAt:
+          $ref: '#/components/schemas/OffsetDateTime'
+        uuid:
+          type: string
+        version:
+          type: string
+        createTimestamp:
+          $ref: '#/components/schemas/LocalDateTime'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/SyntaxError'
+        receiverId:
+          type: string
+        receiverIdType:
+          type: string
+        senderId:
+          type: string
+        senderIdType:
+          type: string
+        type:
+          type: string
+        controlEntity:
+          $ref: '#/components/schemas/GroupControl'
+    GroupControl:
+      required:
+      - title
+      - version
+      - localId
+      - remoteId
+      - type
+      type: object
+      properties:
+        agencyCode:
+          description: Agency code of the standards body that defines the schema of
+            this record
+          maxLength: 4
+          type: string
+        channelId:
+          description: "Channel identifier. Required for new records, otherwise read-only"
+          type: string
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/OffsetDateTime'
+          - description: Date and time the record was created
+            readOnly: true
+        industryCode:
+          description: Industry identifier (implementation version) of the standard
+          maxLength: 255
+          type: string
+        lastControlNumber:
+          format: int64
+          description: The previous control number used for outbound data. Defaults
+            to `0` for new records.
+          type: integer
+        release:
+          description: Release (sub-version) of the standard
+          maxLength: 255
+          type: string
+        title:
+          title: Readable name for the record
+          maxLength: 255
+          pattern: \S
+          type: string
+          nullable: false
+        updatedAt:
+          allOf:
+          - $ref: '#/components/schemas/OffsetDateTime'
+          - description: Date and time the record was last updated
+            readOnly: true
+        uuid:
+          title: Unique system-generated identifier for the control record
+          type: string
+          readOnly: true
+        version:
+          description: Version of the standard
+          maxLength: 255
+          pattern: \S
+          type: string
+          nullable: false
+        interchangeControlId:
+          description: "Interchange control identifier. Required for new records,\
+            \ otherwise read-only"
+          type: string
+        localId:
+          description: Used for the sender on output interchanges and the receiver
+            on inbound groups
+          type: string
+        localIdType:
+          description: Used for the sender on output interchanges and the receiver
+            on inbound groups. Not used for X12
+          type: string
+        remoteId:
+          description: Used for the receiver on output interchanges and the sender
+            on inbound groups
+          type: string
+        remoteIdType:
+          description: Used for the receiver on output interchanges and the sender
+            on inbound groups. Not used for X12
+          type: string
+        type:
+          description: Functional/message group type code
+          pattern: \S
+          type: string
+          nullable: false
+    Interchange:
+      type: object
+      properties:
+        ackCode:
+          type: string
+        agencyCode:
+          type: string
+        channel:
+          $ref: '#/components/schemas/Channel'
+        controlCount:
+          type: string
+        controlReference:
+          type: string
+        createdAt:
+          $ref: '#/components/schemas/OffsetDateTime'
+        industryCode:
+          type: string
+        release:
+          type: string
+        updatedAt:
+          $ref: '#/components/schemas/OffsetDateTime'
+        uuid:
+          type: string
+        version:
+          type: string
+        ackRequested:
+          type: string
+        componentSeparator:
+          type: string
+        createTimestamp:
+          $ref: '#/components/schemas/LocalDateTime'
+        decimalMark:
+          type: string
+        direction:
+          type: string
+        elementSeparator:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/SyntaxError'
+        interchangeControl:
+          $ref: '#/components/schemas/InterchangeControl'
+        messageDigest:
+          type: string
+        receiverId:
+          type: string
+        receiverIdType:
+          type: string
+        releaseCharacter:
+          type: string
+        repetitionSeparator:
+          type: string
+        segmentTerminator:
+          type: string
+        senderId:
+          type: string
+        senderIdType:
+          type: string
+        testIndicator:
+          type: string
+        controlEntity:
+          $ref: '#/components/schemas/InterchangeControl'
+        errorCount:
+          format: int32
+          type: integer
+    InterchangeControl:
+      required:
+      - title
+      - version
+      - localId
+      - remoteId
+      - standard
+      - testIndicator
+      type: object
+      properties:
+        agencyCode:
+          description: Agency code of the standards body that defines the schema of
+            this record
+          maxLength: 4
+          type: string
+        channelId:
+          description: "Channel identifier. Required for new records, otherwise read-only"
+          type: string
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/OffsetDateTime'
+          - description: Date and time the record was created
+            readOnly: true
+        industryCode:
+          description: Industry identifier (implementation version) of the standard
+          maxLength: 255
+          type: string
+        lastControlNumber:
+          format: int64
+          description: The previous control number used for outbound data. Defaults
+            to `0` for new records.
+          type: integer
+        release:
+          description: Release (sub-version) of the standard
+          maxLength: 255
+          type: string
+        title:
+          title: Readable name for the record
+          maxLength: 255
+          pattern: \S
+          type: string
+          nullable: false
+        updatedAt:
+          allOf:
+          - $ref: '#/components/schemas/OffsetDateTime'
+          - description: Date and time the record was last updated
+            readOnly: true
+        uuid:
+          title: Unique system-generated identifier for the control record
+          type: string
+          readOnly: true
+        version:
+          description: Version of the standard
+          maxLength: 255
+          pattern: \S
+          type: string
+          nullable: false
+        componentSeparator:
+          description: Component element separator to be used for outbound interchanges.
+            Default value is dialect specific (EDIFACT/X12) if not specified.
+          maxLength: 1
+          type: string
+        decimalMark:
+          description: Decimal character to be used for outbound interchanges. Not
+            supported for X12
+          maxLength: 1
+          type: string
+        elementSeparator:
+          description: Element separator to be used for outbound interchanges. Default
+            value is dialect specific (EDIFACT/X12) if not specified.
+          maxLength: 1
+          type: string
+        localId:
+          description: Used for the sender on output interchanges and the receiver
+            on inbound interchanges
+          maxLength: 255
+          pattern: \S
+          type: string
+          nullable: false
+        localIdType:
+          description: "Used for the sender on output interchanges and the receiver\
+            \ on inbound interchanges. Optional for EDIFACT, required for X12"
+          maxLength: 255
+          pattern: \S
+          type: string
+          nullable: false
+        releaseCharacter:
+          description: Release character to be used for outbound interchanges. Default
+            value is dialect specific (EDIFACT/X12) if not specified.
+          maxLength: 1
+          type: string
+        remoteId:
+          description: Used for the receiver on output interchanges and the sender
+            on inbound interchanges
+          maxLength: 255
+          pattern: \S
+          type: string
+          nullable: false
+        remoteIdType:
+          description: "Used for the receiver on output interchanges and the sender\
+            \ on inbound interchanges. Optional for EDIFACT, required for X12"
+          maxLength: 255
+          pattern: \S
+          type: string
+          nullable: false
+        repetitionSeparator:
+          description: Repetition separator to be used for outbound interchanges.
+            Default value is dialect specific (EDIFACT/X12) if not specified.
+          maxLength: 1
+          type: string
+        segmentTerminator:
+          description: Segment terminator to be used for outbound interchanges. Default
+            value is dialect specific (EDIFACT/X12) if not specified.
+          maxLength: 1
+          type: string
+        standard:
+          description: EDI standard
+          maxLength: 7
+          pattern: \S
+          enum:
+          - EDIFACT
+          - X12
+          type: string
+          nullable: false
+        testIndicator:
+          description: "Test indicator to be used for outbound interchanges. Value\
+            \ is dialect specific (EDIFACT/X12). For example, X12 uses `P` and `T`,\
+            \ whereas EDIFACT uses `1` through `5`."
+          maxLength: 1
+          type: string
+    LocalDateTime:
+      format: date-time
+      type: string
+    OffsetDateTime:
+      format: date-time
+      type: string
+    SyntaxError:
+      type: object
+      properties:
+        componentPosition:
+          format: int32
+          type: integer
+        createdAt:
+          $ref: '#/components/schemas/OffsetDateTime'
+        elementOccurrence:
+          format: int32
+          type: integer
+        elementPosition:
+          format: int32
+          type: integer
+        errorCode:
+          type: string
+        loopCode:
+          type: string
+        referenceCode:
+          type: string
+        segmentPosition:
+          format: int32
+          type: integer
+        segmentTag:
+          type: string
+    Transaction:
+      type: object
+      properties:
+        ackCode:
+          type: string
+        agencyCode:
+          type: string
+        channel:
+          $ref: '#/components/schemas/Channel'
+        controlCount:
+          type: string
+        controlReference:
+          type: string
+        createdAt:
+          $ref: '#/components/schemas/OffsetDateTime'
+        industryCode:
+          type: string
+        release:
+          type: string
+        updatedAt:
+          $ref: '#/components/schemas/OffsetDateTime'
+        uuid:
+          type: string
+        version:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/SyntaxError'
+        type:
+          type: string
+        controlEntity:
+          $ref: '#/components/schemas/TransactionControl'
+    TransactionControl:
+      required:
+      - title
+      - version
+      type: object
+      properties:
+        agencyCode:
+          description: Agency code of the standards body that defines the schema of
+            this record
+          maxLength: 4
+          type: string
+        channelId:
+          description: "Channel identifier. Required for new records, otherwise read-only"
+          type: string
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/OffsetDateTime'
+          - description: Date and time the record was created
+            readOnly: true
+        industryCode:
+          description: Industry identifier (implementation version) of the standard
+          maxLength: 255
+          type: string
+        lastControlNumber:
+          format: int64
+          description: The previous control number used for outbound data. Defaults
+            to `0` for new records.
+          type: integer
+        release:
+          description: Release (sub-version) of the standard
+          maxLength: 255
+          type: string
+        title:
+          title: Readable name for the record
+          maxLength: 255
+          pattern: \S
+          type: string
+          nullable: false
+        updatedAt:
+          allOf:
+          - $ref: '#/components/schemas/OffsetDateTime'
+          - description: Date and time the record was last updated
+            readOnly: true
+        uuid:
+          title: Unique system-generated identifier for the control record
+          type: string
+          readOnly: true
+        version:
+          description: Version of the standard
+          maxLength: 255
+          pattern: \S
+          type: string
+          nullable: false
+        groupControlId:
+          description: "Group control identifier. Required for new records directly\
+            \ tied to a group control record, not used otherwise"
+          type: string
+        interchangeControlId:
+          description: "Interchange control identifier. Required for new records directly\
+            \ tied to an interchange control record, not used otherwise"
+          type: string
+        type:
+          type: string
+  responses:
+    InvalidRecordError:
+      description: Bad Request; Invalid record
+    RecordNotFound:
+      description: Not Found; No such record
+    DuplicateRecordConflict:
+      description: Conflict; Duplicate record
+    "200":
+      description: OK
+  parameters:
+    id:
+      name: id
+      in: path
+      description: Record identifier
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    APIKeyScheme:
+      type: apiKey
+      description: API Key from channel configuration
+      name: X-FT-API-Key
+      in: header
+    OAuth2Scheme:
+      type: oauth2
+      description: Token-based auth using OAuth2
+      flows:
+        clientCredentials:
+          tokenUrl: /token
+          scopes: {}
+        authorizationCode:
+          authorizationUrl: /authorize
+          tokenUrl: /token
+          scopes: {}
